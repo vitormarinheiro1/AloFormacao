@@ -1,10 +1,19 @@
-from django.http import JsonResponse
+from forum.models import Aluno, Curso, Reclamacao, Comentario
+from forum.serializers import AlunoSerializer, CursoSerializer, ReclamacaoSerializer, ComentarioSerializer
+from rest_framework import viewsets
 
+class AlunoViewSet(viewsets.ModelViewSet):
+    queryset = Aluno.objects.all()
+    serializer_class = AlunoSerializer
 
-def forum(request):
-    if request.method == 'GET':
-        aluno = {
-            'id': '1',
-            'nome': 'Vitor'
-        }
-        return JsonResponse(aluno)
+class CursoViewSet(viewsets.ModelViewSet):
+    queryset = Curso.objects.all()
+    serializer_class = CursoSerializer
+
+class ReclamacaoViewSet(viewsets.ModelViewSet):
+    queryset = Reclamacao.objects.all()
+    serializer_class = ReclamacaoSerializer
+
+class ComentarioViewSet(viewsets.ModelViewSet):
+    queryset = Comentario.objects.all()
+    serializer_class = ComentarioSerializer

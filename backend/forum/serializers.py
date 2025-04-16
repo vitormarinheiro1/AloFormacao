@@ -9,14 +9,14 @@ class AlunoSerializer(serializers.ModelSerializer):
 class CursoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Curso
-        fields = ['id', 'nome', 'descricao']
+        fields = '__all__'
 
 class ReclamacaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reclamacao
-        fields = ['id', 'titulo', 'descricao']
+        fields = '__all__'
 
 class ComentarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comentario
-        fields = ['id', 'comentario']
+        fields = '__all__'

@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from django.http import JsonResponse
 
-# Create your views here.
+
+def aloformacao(request):
+    if request.method == 'GET':
+        aluno = {
+            'id': '1',
+            'nome': 'Vitor'
+        }
+        return JsonResponse(aluno)

@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 
 
-def aloformacao(request):
+def forum(request):
     if request.method == 'GET':
         aluno = {
             'id': '1',

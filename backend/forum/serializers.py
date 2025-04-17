@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from forum.models import Aluno, Curso, Reclamacao, Comentario
+from forum.validators import nome_invalido
 
 
 class AlunoSerializer(serializers.ModelSerializer):
@@ -7,10 +8,10 @@ class AlunoSerializer(serializers.ModelSerializer):
         model = Aluno
         fields = ['id', 'nome', 'email', 'password', 'tipo_usuario', 'created_at']
     
-    def validate_nome(self, nome):
-        if not nome.isalpha():
-            raise serializers.ValidationError("O nome só pode conter letras!")
-        return nome
+    def validate(self, dados):
+        if nome_invalido(dados['nome']):
+            raise serializers.ValidationError({"nome": "O nome só pode conter letras!"})
+        return dados
 
 class CursoSerializer(serializers.ModelSerializer):
     class Meta:

@@ -8,8 +8,10 @@ from django_filters.rest_framework import DjangoFilterBackend
 class AlunoViewSet(viewsets.ModelViewSet):
     queryset = Aluno.objects.all()
     serializer_class = AlunoSerializer
-    filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
+
+    filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
     ordering_filters = ['nome']
+    search_fields = ['nome', 'email']
 
 class CursoViewSet(viewsets.ModelViewSet):
     queryset = Curso.objects.all()

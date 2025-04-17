@@ -6,7 +6,7 @@ class Alunos(admin.ModelAdmin):
     list_display = ('id', 'nome', 'email', 'password', 'tipo_usuario', 'created_at')
     list_display_links = ('id', 'nome')
     list_per_page = 20
-    search_fields = ('nome',)
+    search_fields = ('nome', 'email')
 
 admin.site.register(Aluno, Alunos)
 

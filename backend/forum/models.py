@@ -20,11 +20,11 @@ class Curso(models.Model):
     nome = models.CharField(max_length=100)
     descricao = models.CharField(max_length=255)
     CATEGORIA = (
-            ('P', 'Programação'),
-            ('R', 'Redes de Computadores'),
-            ('C', 'Cyber Segurança'),
-            ('A', 'Administração'),
-            ('O', 'Outros')
+        ('P', 'Programação'),
+        ('R', 'Redes de Computadores'),
+        ('C', 'Cyber Segurança'),
+        ('A', 'Administração'),
+        ('O', 'Outros')
     )
     categoria = models.CharField(max_length=10, choices = CATEGORIA, null = False, blank = False, default="P")
     STATUS = (

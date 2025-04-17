@@ -3,13 +3,13 @@ from django.db import models
 
 class Aluno(models.Model):
     nome = models.CharField(max_length=100)
-    email = models.EmailField(blank=False, )
+    email = models.EmailField(blank=False, unique=True)
     password = models.CharField(max_length=100)
     TIPO_USUARIO = (
         ('AD', 'Admin'),
         ('AL', 'Aluno')
     )
-    tipo_usuario = models.CharField(max_length=100, choices = TIPO_USUARIO, null = False, blank = False, default="AL")
+    tipo_usuario = models.CharField(max_length=2, choices = TIPO_USUARIO, null = False, blank = False, default="AL")
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -19,7 +19,14 @@ class Aluno(models.Model):
 class Curso(models.Model):
     nome = models.CharField(max_length=100)
     descricao = models.CharField(max_length=255)
-    categoria = models.CharField(max_length=100)
+    CATEGORIA = (
+            ('P', 'Programação'),
+            ('R', 'Redes de Computadores'),
+            ('C', 'Cyber Segurança'),
+            ('A', 'Administração'),
+            ('O', 'Outros')
+    )
+    categoria = models.CharField(max_length=10, choices = CATEGORIA, null = False, blank = False, default="P")
     STATUS = (
         ('A', 'Ativo'),
         ('I', 'Inativo')

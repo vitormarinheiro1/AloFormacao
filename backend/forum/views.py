@@ -1,6 +1,8 @@
 from forum.models import Aluno, Curso, Reclamacao, Comentario
 from forum.serializers import AlunoSerializer, CursoSerializer, ReclamacaoSerializer, ComentarioSerializer
 from rest_framework import viewsets
+from rest_framework.authentication import BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 class AlunoViewSet(viewsets.ModelViewSet):
     queryset = Aluno.objects.all()

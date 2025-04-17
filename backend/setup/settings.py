@@ -84,10 +84,7 @@ DATABASES = {
         "USER": config("DB_USER"),
         "PASSWORD": config("DB_PASSWORD"),
         "HOST": config("DB_HOST"),
-        "PORT": config("DB_PORT"),
-        'OPTIONS': {
-            'client_encoding': 'UTF8',  # Força o uso de UTF-8 na conexão
-        },
+        "PORT": config("DB_PORT")
     }
 }
 

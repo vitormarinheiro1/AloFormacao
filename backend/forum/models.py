@@ -53,6 +53,7 @@ class Reclamacao(models.Model):
     def __str__(self):
         return self.titulo
 
+
 class Comentario(models.Model):
     usuario_id = models.ForeignKey(Aluno, on_delete=models.CASCADE)
     reclamacao_id = models.ForeignKey(Reclamacao, on_delete=models.CASCADE)
@@ -61,3 +62,7 @@ class Comentario(models.Model):
 
     def __str__(self):
         return self.comentario
+
+
+class Avaliacao(models.Model):
+    pass
